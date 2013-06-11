@@ -1,0 +1,26 @@
+{
+  "name": "envs",
+  "version": "0.1.0",
+  "description": "Track environment variable usage",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CamShaft/envs.git"
+  },
+  "keywords": [
+    "environment",
+    "variables"
+  ],
+  "author": "Cameron Bytheway <cameron@theflokk.com>",
+  "license": "MIT",
+  "dependencies": {
+    "simple-debug": "~1.1.0"
+  },
+  "devDependencies": {
+    "should": "~1.2.2",
+    "mocha": "~1.10.0"
+  }
+}

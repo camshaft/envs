@@ -18,15 +18,25 @@ var usages = {};
  * @return {String}
  */
 exports = module.exports = function env(name, defaultVal) {
-  var location = /\((.+)\)/.exec((new Error).stack.split("\n")[2])
-    , lineno = location[1]
-    , val = process.env[name] || defaultVal;
-
+  // Get the value
+  var val = process.env[name] || defaultVal;
   debug(lineno, name+"="+val);
 
-  if(!usages[name]) usages[name] = [];
+  // Parse the stack
+  var lineno = (new Error).stack.split("\n")[2].trim();
 
-  usages[name].push({lineno: lineno, defaultVal: defaultVal, val: val});
+  // Track the usages
+  var envUsages = usages[name];
+
+  // Create it if we don't have it already
+  if(!envUsages) envUsages = usages[name] = [];
+
+  // Check to see if we've already added this line number
+  for (var i = envUsages.length - 1; i >= 0; i--) {
+    if (envUsages[i].lineno === lineno) return;
+  };
+
+  envUsages.push({lineno: lineno, defaultVal: defaultVal, val: val});
 
   return val;
 };

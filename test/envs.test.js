@@ -18,4 +18,12 @@ describe("envs", function() {
 
     envs.usages.LINENO_TEST[0].lineno.should.include("17");
   });
+
+  it("should only add a line once", function() {
+    [1,2,3,4,5].forEach(function() {
+      envs("MULTIPLE_VAR");
+    });
+    console.log(envs.usages);
+    // envs.usages.MULTIPLE_VAR.should.have.length(1);
+  });
 });

@@ -23,7 +23,6 @@ describe("envs", function() {
     [1,2,3,4,5].forEach(function() {
       envs("MULTIPLE_VAR");
     });
-    console.log(envs.usages);
-    // envs.usages.MULTIPLE_VAR.should.have.length(1);
+    envs.usages.MULTIPLE_VAR.should.have.length(1);
   });
 });

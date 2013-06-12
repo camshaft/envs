@@ -33,7 +33,7 @@ exports = module.exports = function env(name, defaultVal) {
 
   // Check to see if we've already added this line number
   for (var i = envUsages.length - 1; i >= 0; i--) {
-    if (envUsages[i].lineno === lineno) return;
+    if (envUsages[i].lineno === lineno) return val;
   };
 
   envUsages.push({lineno: lineno, defaultVal: defaultVal, val: val});

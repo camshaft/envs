@@ -20,10 +20,12 @@ var usages = {};
 exports = module.exports = function env(name, defaultVal) {
   // Get the value
   var val = process.env[name] || defaultVal;
-  debug(lineno, name+"="+val);
 
   // Parse the stack
   var lineno = (new Error).stack.split("\n")[2].trim();
+
+  // Log it
+  debug(lineno, name+"="+val);
 
   // Track the usages
   var envUsages = usages[name];

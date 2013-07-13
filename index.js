@@ -1,12 +1,20 @@
 /**
  * Module dependencies
  */
+
 var debug = require("simple-debug")("envs");
 
 /**
  * Track the env var usages
  */
+
 var usages = {};
+
+/**
+ * Save some global defaults
+ */
+
+var defaults = {};
 
 /**
  * Require an environment variable and track its usage
@@ -17,9 +25,12 @@ var usages = {};
  * @param {Any} defaultVal
  * @return {String}
  */
+
 exports = module.exports = function env(name, defaultVal) {
   // Get the value
-  var val = process.env[name] || defaultVal;
+  var val = typeof process !== 'undefined'
+    ? (process.env[name] || defaultVal || defaults[name])
+    : (defaults[name] || defaultVal);
 
   // Parse the stack
   var lineno = (new Error).stack.split("\n")[2].trim();
@@ -44,6 +55,38 @@ exports = module.exports = function env(name, defaultVal) {
 };
 
 /**
+ * Set defaults in the environment
+ *
+ * @param {String|Object} name
+ * @param {String} val
+ * @api public
+ */
+
+exports.set = function(name, val) {
+  if (isObject(name)) {
+    for (var key in name) {
+      defaults[key] = name[key];
+    }
+    return exports;
+  }
+  defaults[name] = val;
+  return exports;
+};
+
+/**
+ * Check if `obj` is an object.
+ *
+ * @param {Object} obj
+ * @return {Boolean}
+ * @api private
+ */
+
+function isObject(obj) {
+  return obj === Object(obj);
+}
+
+/**
  * Expose the usages
  */
+
 exports.usages = usages;

@@ -1,0 +1,15 @@
+{
+  "name": "envs",
+  "repo": "CamShaft/envs",
+  "description": "Track environment variable usage",
+  "version": "0.1.1",
+  "keywords": [],
+  "dependencies": {
+    "timshadel/simple-debug": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ]
+}

@@ -2,7 +2,7 @@
   "name": "envs",
   "repo": "CamShaft/envs",
   "description": "Track environment variable usage",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "keywords": [],
   "dependencies": {
     "timshadel/simple-debug": "*"

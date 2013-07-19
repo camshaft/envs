@@ -5,7 +5,9 @@
   "version": "0.1.2",
   "keywords": [],
   "dependencies": {
-    "timshadel/simple-debug": "*"
+    "timshadel/simple-debug": "*",
+    "CamShaft/javascript-stacktrace": "patch-1",
+    "CamShaft/require-component": "*"
   },
   "development": {},
   "license": "MIT",

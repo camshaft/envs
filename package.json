@@ -17,7 +17,9 @@
   "author": "Cameron Bytheway <cameron@theflokk.com>",
   "license": "MIT",
   "dependencies": {
-    "simple-debug": "~1.1.0"
+    "simple-debug": "~1.1.0",
+    "stacktrace-js": "~0.5.0",
+    "require-component": "~0.1.0"
   },
   "devDependencies": {
     "should": "~1.2.2",

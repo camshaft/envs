@@ -2,7 +2,10 @@
  * Module dependencies
  */
 
-var debug = require("simple-debug")("envs");
+require = require('require-component')(require);
+
+var debug = require('simple-debug')('envs')
+  , stacktrace = require('stacktrace.js', 'stacktrace-js');
 
 /**
  * Track the env var usages
@@ -19,7 +22,7 @@ var defaults = {};
 /**
  * Require an environment variable and track its usage
  *
- *     envs("MY_VAR", "this is a default");
+ *     envs('MY_VAR', 'this is a default');
  *
  * @param {String} name
  * @param {Any} defaultVal
@@ -33,10 +36,10 @@ exports = module.exports = function env(name, defaultVal) {
     : (defaults[name] || defaultVal);
 
   // Parse the stack
-  var lineno = (new Error).stack.split("\n")[2].trim();
+  var lineno = stacktrace()[4].trim();
 
   // Log it
-  debug(lineno, name+"="+val);
+  debug(lineno, name+'='+val);
 
   // Track the usages
   var envUsages = usages[name];

@@ -25,4 +25,28 @@ describe("envs", function() {
     });
     envs.usages.MULTIPLE_VAR.should.have.length(1);
   });
+
+  it("should parse the integer", function() {
+    envs.int("TEST_INT").should.equal(123);
+  });
+
+  it("should parse a default", function() {
+    envs.int("NONEXISTANT", "456").should.equal(456);
+  });
+
+  it("should use a default", function() {
+    envs.int("NONEXISTANT", 456).should.equal(456);
+  });
+
+  it("should parse the float", function() {
+    envs.float("TEST_FLOAT").should.equal(123.123);
+  });
+
+  it("should parse a default", function() {
+    envs.float("NONEXISTANT", "456.456").should.equal(456.456);
+  });
+
+  it("should use a default", function() {
+    envs.float("NONEXISTANT", 456.456).should.equal(456.456);
+  });
 });

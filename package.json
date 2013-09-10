@@ -4,7 +4,7 @@
   "description": "Track environment variable usage",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha"
+    "test": "NODE_ENV=test TEST_INT=123 TEST_FLOAT=123.123 mocha"
   },
   "repository": {
     "type": "git",

@@ -58,6 +58,42 @@ exports = module.exports = function env(name, defaultVal) {
 };
 
 /**
+ * Require a integer
+ *
+ * @param {String}
+ * @param {Number}
+ * @return {Number}
+ */
+
+exports.int = function(name, defaultVal) {
+  var val = exports(name, defaultVal);
+  if (typeof val === 'number') return val;
+  try {
+    return parseInt(val);
+  } catch (e) {
+    return defaultVal;
+  }
+};
+
+/**
+ * Require a float
+ *
+ * @param {String}
+ * @param {Number}
+ * @return {Number}
+ */
+
+exports.float = function(name, defaultVal) {
+  var val = exports(name, defaultVal);
+  if (typeof val === 'number') return val;
+  try {
+    return parseFloat(val);
+  } catch (e) {
+    return defaultVal;
+  }
+};
+
+/**
  * Set defaults in the environment
  *
  * @param {String|Object} name

@@ -32,7 +32,7 @@ var defaults = {};
 exports = module.exports = function env(name, defaultVal) {
   // Get the value
   var val = typeof process !== 'undefined'
-    ? (process.env[name] || defaultVal || defaults[name])
+    ? (process.env[name] || defaultVal || defaults[name] || defaultVal)
     : (defaults[name] || defaultVal);
 
   // Parse the stack

@@ -6,7 +6,7 @@
   "keywords": [],
   "dependencies": {
     "timshadel/simple-debug": "*",
-    "CamShaft/javascript-stacktrace": "patch-1",
+    "stacktracejs/stacktrace.js": "*",
     "CamShaft/require-component": "*"
   },
   "development": {},

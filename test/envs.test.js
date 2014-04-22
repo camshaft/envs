@@ -1,8 +1,12 @@
 /**
  * Module dependencies
  */
-var should = require("should")
-  , envs = require("..");
+var should = require("should");
+var envs = require("..");
+
+// enable tracing
+
+envs.trace = true;
 
 describe("envs", function() {
   it("should return the correct values", function() {

@@ -4,8 +4,7 @@
 
 require = require('require-component')(require);
 
-var debug = require('simple-debug')('envs')
-  , stacktrace = require('stacktrace.js', 'stacktrace-js');
+var debug = require('simple-debug')('envs');
 
 /**
  * Track the env var usages
@@ -35,11 +34,13 @@ exports = module.exports = function env(name, defaultVal) {
     ? (process.env[name] || defaultVal || defaults[name] || defaultVal)
     : (defaults[name] || defaultVal);
 
+  if (!exports.trace) return val;
+
   // Parse the stack
-  var lineno = stacktrace()[4].trim();
+  var lineno = (new Error).stack.split('\n')[1].trim();
 
   // Log it
-  debug(lineno, name+'='+val);
+  debug(lineno, name + '=' + val);
 
   // Track the usages
   var envUsages = usages[name];
@@ -56,6 +57,12 @@ exports = module.exports = function env(name, defaultVal) {
 
   return val;
 };
+
+/**
+ * Trace off by default
+ */
+
+exports.trace = false;
 
 /**
  * Require a integer

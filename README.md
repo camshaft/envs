@@ -7,12 +7,15 @@ Usage
 -----
 
 ```js
-var envs = require("envs");
+var envs = require('envs');
 
-console.log(envs("NODE_ENV"));
+// enable tracing
+env.trace = true;
+
+console.log(envs('NODE_ENV'));
 // "production"
 
-console.log(envs("NONEXISTANT", "my default value"));
+console.log(envs('NONEXISTANT', 'my default value'));
 // "my default value"
 
 console.log(env.usages);

@@ -1,13 +1,12 @@
 {
   "name": "envs",
-  "repo": "CamShaft/envs",
+  "repo": "camshaft/envs",
   "description": "Track environment variable usage",
   "version": "0.1.4",
   "keywords": [],
   "dependencies": {
     "timshadel/simple-debug": "*",
-    "stacktracejs/stacktrace.js": "*",
-    "CamShaft/require-component": "*"
+    "camshaft/require-component": "*"
   },
   "development": {},
   "license": "MIT",

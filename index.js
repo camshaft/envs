@@ -4,7 +4,7 @@
 
 require = require('require-component')(require);
 
-var debug = require('simple-debug')('envs');
+var debug = require('debug')('envs');
 
 /**
  * Track the env var usages

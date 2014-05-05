@@ -1,6 +1,6 @@
 {
   "name": "envs",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Track environment variable usage",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,7 @@
   "author": "Cameron Bytheway <cameron@theflokk.com>",
   "license": "MIT",
   "dependencies": {
-    "simple-debug": "~1.1.0",
+    "debug": "~0.8.1",
     "require-component": "~0.1.0"
   },
   "devDependencies": {

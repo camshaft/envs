@@ -10,7 +10,7 @@ Usage
 var envs = require('envs');
 
 // enable tracing
-env.trace = true;
+envs.trace = true;
 
 console.log(envs('NODE_ENV'));
 // "production"
@@ -18,7 +18,7 @@ console.log(envs('NODE_ENV'));
 console.log(envs('NONEXISTANT', 'my default value'));
 // "my default value"
 
-console.log(env.usages);
+console.log(envs.usages);
 // { NODE_ENV: 
 //   [ { lineno: '/Users/cameron/Projects/misc/envs/example.js:3:13',
 //       defaultVal: undefined,
